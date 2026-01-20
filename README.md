@@ -17,22 +17,22 @@ This project implements a **Multi-Agent System** where distinct agents handle sp
 
 ```mermaid
 graph TD
-    User([👤 User]) -->|Uploads Screenshot & URLs| UI[🖥️ Streamlit Frontend]
-    UI -->|HTTP POST| API[⚙️ FastAPI Orchestrator]
+    User([👤 User]) -->|Uploads Screenshot & URLs| UI["🖥️ Streamlit Frontend"]
+    UI -->|HTTP POST| API["⚙️ FastAPI Orchestrator"]
     
     subgraph "Phase 1: Ingestion & Perception"
-        API --> Vision[👁️ Vision Agent<br>(Gemini 2.0 Flash)]
-        Vision -->|Player Mappings| Scraper[🕸️ Scraper Agent<br>(Playwright Stealth)]
-        Scraper -->|Scores & Commentary| Auditor[🧮 Auditor Agent<br>(Settlement Logic)]
+        API --> Vision["👁️ Vision Agent<br/>(Gemini 2.0 Flash)"]
+        Vision -->|Player Mappings| Scraper["🕸️ Scraper Agent<br/>(Playwright Stealth)"]
+        Scraper -->|Scores & Commentary| Auditor["🧮 Auditor Agent<br/>(Settlement Logic)"]
     end
     
     subgraph "Phase 2: Intelligence Layer (Google Cloud)"
-        Auditor --> Analyst[📈 Analyst Agent<br>(Gemini 2.0 Reasoning)]
-        Scraper --> Forecaster[🔮 Forecaster Agent<br>(Predictive Strategy)]
-        Scraper --> Commentator[🎙️ Commentator Agent<br>(Self-Hosted Gemma 2)]
+        Auditor --> Analyst["📈 Analyst Agent<br/>(Gemini 2.0 Reasoning)"]
+        Scraper --> Forecaster["🔮 Forecaster Agent<br/>(Predictive Strategy)"]
+        Scraper --> Commentator["🎙️ Commentator Agent<br/>(Self-Hosted Gemma 2)"]
         
-        Analyst <-->|Managed API| Gemini[☁️ Google Gemini API]
-        Commentator <-->|Endpoint| Vertex[☁️ Vertex AI Model Garden]
+        Analyst <-->|Managed API| Gemini["☁️ Google Gemini API"]
+        Commentator <-->|Endpoint| Vertex["☁️ Vertex AI Model Garden"]
     end
     
     Analyst -->|Insight| API
